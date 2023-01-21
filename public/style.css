@@ -39,3 +39,12 @@ body {
   z-index: 0;
 }
 
+/* Animation keyframes */
+@keyframes pulse {
+  from {
+    transform: scale(2.8); /* This sets the starting scale of the square */
+  }
+  to {
+    transform: scale(2.7); /* This sets the ending scale of the square */
+  }
+}

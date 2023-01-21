@@ -19,25 +19,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document
-    .querySelector(".namecenterpage .a")
-    .addEventListener("mouseenter", () => {
-      anime({
-        targets: ".namecenterpage .square",
-        borderRadius: ["0%", "50%"],
-        easing: "easeInBounce",
-        scale: 2.8,
-      });
-    });
+  const square = document.querySelector(".namecenterpage .a");
 
-  document
-    .querySelector(".namecenterpage .a")
-    .addEventListener("mouseleave", () => {
-      anime({
-        targets: ".namecenterpage .square",
-        borderRadius: ["50%", "0%"],
-        easing: "easeOutBounce",
-        scale: 1,
-      });
+  square.addEventListener("mouseenter", () => {
+    anime({
+      targets: ".namecenterpage .square",
+      borderRadius: ["0%", "50%"],
+      easing: "easeInBounce",
+      scale: 2.8,
+      complete: () => {
+        anime({
+          targets: ".namecenterpage .square",
+          animation: "pulse 1s infinite",
+        });
+      },
     });
+  });
+
+  square.addEventListener("mouseleave", () => {
+    anime({
+      targets: ".namecenterpage .square",
+      borderRadius: ["50%", "0%"],
+      easing: "easeOutBounce",
+      scale: 1,
+      animation: "none",
+    });
+  });
 });
