@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "linear",
         update: function () {
           susText.innerHTML = "jebaited its a circle ඞඞඞඞ!!";
+          document.querySelector(".container_mouse").style.display = "block";
           document.querySelector(
             ".intro"
           ).innerHTML = `Hi <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px"></img> I'm`;
@@ -99,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const computedStyles = window.getComputedStyle(square);
       const borderRadius = computedStyles.getPropertyValue("border-radius");
-      console.log(borderRadius);
+      // console.log(borderRadius);
       if (borderRadius === "0px" && squareScale > 2.8) {
         anime({
           update: function () {
@@ -117,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".credits").innerHTML = "";
             document.querySelector(".intro").innerHTML = "";
             document.querySelector(".c").innerHTML = "";
+            document.querySelector(".container_mouse").style.display = "none";
           },
           complete: function () {
             setTimeout(function () {
