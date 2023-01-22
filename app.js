@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   var audio = document.createElement("audio");
-  audio.src = "public/music.mp3";
+  audio.src = "public/sussybaka.mp3";
   audio.setAttribute("id", "audio");
 
   const square = document.querySelector(".namecenterpage .selection");
-  const text = document.querySelector(".namecenterpage .a");
+  const susText = document.querySelector(".namecenterpage .b");
   let squareScale = 1;
   console.log("0: " + squareScale);
 
@@ -16,6 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
       anime({
         targets: [".namecenterpage .square", ".namecenterpage .a"],
         scale: 1.1,
+      });
+      anime({
+        targets: ".namecenterpage .b",
+        easing: "linear",
+        update: function () {
+          susText.innerHTML = "👀";
+        },
       });
       squareScale = 1.1;
     }
@@ -29,6 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
         targets: [".namecenterpage .square", ".namecenterpage .a"],
         scale: 1,
       });
+      anime({
+        targets: ".namecenterpage .b",
+        easing: "linear",
+        update: function () {
+          susText.innerHTML = "is this a square?";
+        },
+      });
       squareScale = 1;
     }
   });
@@ -37,6 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
   square.addEventListener("click", () => {
     if (squareScale < 2.8) {
       console.log("3: " + squareScale);
+      anime({
+        targets: ".namecenterpage .b",
+        easing: "linear",
+        update: function () {
+          susText.innerHTML = "jebaited its a circle ඞඞඞඞ!!";
+        },
+      });
       anime({
         targets: document.querySelector(".namecenterpage .a"),
         letterSpacing: 0,
@@ -50,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         complete: () => {
           anime({
             targets: ".namecenterpage .square",
-            animation: "pulse 1s infinite",
+            animation: "pulse 0.5s infinite",
           });
         },
       });
@@ -66,6 +87,35 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("4: " + squareScale);
       console.log("stop music");
       audio.pause();
+      anime({
+        targets: ".namecenterpage .b",
+        easing: "linear",
+        update: function () {
+          susText.innerHTML = "🤪🤪🤪";
+        },
+        complete: function () {
+          setTimeout(function () {
+            anime({
+              targets: ".namecenterpage .b",
+              easing: "linear",
+              update: function () {
+                susText.innerHTML = "...";
+              },
+              complete: function () {
+                setTimeout(function () {
+                  anime({
+                    targets: ".namecenterpage .b",
+                    easing: "linear",
+                    update: function () {
+                      susText.innerHTML = "";
+                    },
+                  });
+                }, 1000);
+              },
+            });
+          }, 500);
+        },
+      });
       anime({
         targets: [".namecenterpage .square", ".namecenterpage .a"],
         animation: "none",
