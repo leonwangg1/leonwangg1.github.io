@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         update: function () {
           susText.innerHTML = "is this a square?";
           document.querySelector(".namecenterpage .c").innerHTML =
-            "ur kinda sus";
+            "(hopefully nothing breaks 💀)";
         },
       });
       squareScale = 1;
@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             susText.innerHTML = "🤪🤪🤪";
             document.querySelector(".credits").innerHTML = "";
             document.querySelector(".intro").innerHTML = "";
+            document.querySelector(".c").innerHTML = "";
           },
           complete: function () {
             setTimeout(function () {
@@ -123,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 targets: ".namecenterpage .b",
                 easing: "linear",
                 update: function () {
-                  susText.innerHTML = "._.";
+                  susText.innerHTML = "¯\\_(ツ)_/¯";
                 },
                 complete: function () {
                   setTimeout(function () {

@@ -36,6 +36,10 @@ body {
   z-index: 0;
 }
 
+.socials {
+  font-size: 0;
+}
+
 .namecenterpage .a {
   left: 50;
   top: 50;
@@ -46,7 +50,8 @@ body {
 
 .namecenterpage .b {
   font-weight: bolder;
-
+  /* background-color: black;
+  color: white; */
   left: 50;
   top: 30px;
   position: absolute;
@@ -56,7 +61,6 @@ body {
 
 .namecenterpage .c {
   font-weight: bolder;
-
   left: 48;
   top: 60px;
   position: absolute;
