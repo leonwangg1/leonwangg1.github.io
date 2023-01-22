@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
         targets: ".namecenterpage .b",
         easing: "linear",
         update: function () {
-          susText.innerHTML = "is this a square?";
+          susText.innerHTML = "oh look its a square";
           document.querySelector(".namecenterpage .c").innerHTML =
-            "(hopefully nothing breaks 💀)";
+            "hopefully nothing breaks 💀";
         },
       });
       squareScale = 1;
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Transition to circle
       anime({
         targets: ".namecenterpage .square",
-        borderRadius: ["0%", "50%"],
+        borderRadius: ["3%", "50%"],
         easing: "easeInBounce",
         scale: 2.8,
         complete: () => {
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
         targets: [".namecenterpage .square", ".namecenterpage .a"],
         animation: "none",
         letterSpacing: "0.7rem",
-        borderRadius: ["50%", "0%"],
+        borderRadius: ["50%", "3%"],
         easing: "easeOutBounce",
         scale: 1,
       });
