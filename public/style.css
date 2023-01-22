@@ -38,6 +38,9 @@ body {
 
 .socials {
   font-size: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 .namecenterpage .a {
