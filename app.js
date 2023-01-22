@@ -56,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "linear",
         update: function () {
           susText.innerHTML = "jebaited its a circle ඞඞඞඞ!!";
+          document.querySelector(".credits").innerHTML =
+            "Song  :    Shadow (Syn Cole, Alida)";
         },
       });
       anime({
@@ -63,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         letterSpacing: 0,
         scale: 5,
       });
+      // Transition to circle
       anime({
         targets: ".namecenterpage .square",
         borderRadius: ["0%", "50%"],
@@ -87,11 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("4: " + squareScale);
       console.log("stop music");
       audio.pause();
+
+      // Dialogues
       anime({
         targets: ".namecenterpage .b",
         easing: "linear",
         update: function () {
           susText.innerHTML = "🤪🤪🤪";
+          document.querySelector(".credits").innerHTML = "";
         },
         complete: function () {
           setTimeout(function () {
@@ -116,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 500);
         },
       });
+
       anime({
         targets: [".namecenterpage .square", ".namecenterpage .a"],
         animation: "none",
