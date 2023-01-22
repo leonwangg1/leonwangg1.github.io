@@ -47,10 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Adjust animation speed to bpm of music
-  var buffer = new Tone.Buffer("public/music.mp3", function () {
-    var bpm = buffer.context.lookup.bpm;
-    console.log("BPM: ", bpm);
-    var player = new Tone.Player(buffer).toMaster();
-    player.start();
+  var playButton = document.querySelector(".namecenterpage .square");
+  square.addEventListener("mouseenter", function () {
+    console.log("play music");
+    // add audio inside audio-player
+    var audio = document.createElement("audio");
+    audio.src = "public/music.mp3";
+    audio.setAttribute("autoplay", "autoplay");
+    audio.setAttribute("loop", "loop");
+    audio.setAttribute("id", "audio");
+    document.getElementsByClassName("audio-player")[0].appendChild(audio);
   });
 });
