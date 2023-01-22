@@ -1,61 +1,81 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const names = document.querySelectorAll("h2");
+  var audio = document.createElement("audio");
+  audio.src = "public/music.mp3";
+  // audio.setAttribute("autoplay", "autoplay");
+  // audio.setAttribute("loop", "loop");
+  audio.setAttribute("id", "audio");
 
-  names.forEach((el) => {
-    el.addEventListener("mouseenter", () => {
+  const square = document.querySelector(".namecenterpage .selection");
+  const text = document.querySelector(".namecenterpage .a");
+  let squareScale = 1;
+  console.log("0: " + squareScale);
+
+  // When user hovers over button while not inside button
+  square.addEventListener("mouseenter", () => {
+    square.style.cursor = "pointer";
+    if (squareScale === 1) {
+      console.log("1: " + squareScale);
       anime({
-        targets: el,
+        targets: [".namecenterpage .square", ".namecenterpage .a"],
+        scale: 1.1,
+      });
+      squareScale = 1.1;
+    }
+  });
+
+  // When user leaves button while not inside button
+  square.addEventListener("mouseleave", () => {
+    if (squareScale === 1.1) {
+      console.log("2: " + squareScale);
+      anime({
+        targets: [".namecenterpage .square", ".namecenterpage .a"],
+        scale: 1,
+      });
+      squareScale = 1;
+    }
+  });
+
+  // When user clicks on button
+  square.addEventListener("click", () => {
+    if (squareScale < 2.8) {
+      console.log("3: " + squareScale);
+      anime({
+        targets: document.querySelector(".namecenterpage .a"),
         letterSpacing: 0,
         scale: 5,
       });
-    });
-
-    el.addEventListener("mouseleave", () => {
       anime({
-        targets: el,
-        letterSpacing: "0.7rem",
-        scale: 1,
-      });
-    });
-  });
-
-  const square = document.querySelector(".namecenterpage .a");
-
-  square.addEventListener("mouseenter", () => {
-    anime({
-      targets: ".namecenterpage .square",
-      borderRadius: ["0%", "50%"],
-      easing: "easeInBounce",
-      scale: 2.8,
-      complete: () => {
+        targets: ".namecenterpage .square",
+        borderRadius: ["0%", "50%"],
+        easing: "easeInBounce",
+        scale: 2.8,
+        // complete: () => {
         // anime({
         //   targets: ".namecenterpage .square",
         //   animation: "pulse 1s infinite",
         // });
-      },
-    });
+        // },
+      });
+      console.log("play music");
+      audio.play();
+      squareScale = 2.8;
+    }
   });
 
+  // When user leaves button while inside button
   square.addEventListener("mouseleave", () => {
-    anime({
-      targets: ".namecenterpage .square",
-      borderRadius: ["50%", "0%"],
-      easing: "easeOutBounce",
-      scale: 1,
-      // animation: "none",
-    });
-  });
-
-  // Adjust animation speed to bpm of music
-  var playButton = document.querySelector(".namecenterpage .square");
-  square.addEventListener("mouseenter", function () {
-    console.log("play music");
-    // add audio inside audio-player
-    var audio = document.createElement("audio");
-    audio.src = "public/music.mp3";
-    audio.setAttribute("autoplay", "autoplay");
-    audio.setAttribute("loop", "loop");
-    audio.setAttribute("id", "audio");
-    document.getElementsByClassName("audio-player")[0].appendChild(audio);
+    if (squareScale === 2.8) {
+      console.log("4: " + squareScale);
+      console.log("stop music");
+      audio.pause();
+      anime({
+        targets: [".namecenterpage .square", ".namecenterpage .a"],
+        letterSpacing: "0.7rem",
+        borderRadius: ["50%", "0%"],
+        easing: "easeOutBounce",
+        scale: 1,
+      });
+      squareScale = 1;
+    }
   });
 });
