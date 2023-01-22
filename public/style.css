@@ -15,6 +15,15 @@ body {
   background-color: #f0f0f0;
 }
 
+.intro {
+  position: absolute;
+  font-size: xx-large;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
 .namecenterpage {
   display: flex;
   justify-content: center;
@@ -36,10 +45,22 @@ body {
 }
 
 .namecenterpage .b {
+  font-weight: bolder;
+
   left: 50;
   top: 30px;
   position: absolute;
   letter-spacing: 0.5rem;
+  z-index: 2;
+}
+
+.namecenterpage .c {
+  font-weight: bolder;
+
+  left: 48;
+  top: 60px;
+  position: absolute;
+  letter-spacing: 0.1rem;
   z-index: 2;
 }
 

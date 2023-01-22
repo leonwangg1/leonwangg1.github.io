@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         targets: ".namecenterpage .b",
         easing: "linear",
         update: function () {
+          document.querySelector(".namecenterpage .c").innerHTML = "";
           susText.innerHTML = "👀";
         },
       });
@@ -41,6 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "linear",
         update: function () {
           susText.innerHTML = "is this a square?";
+          document.querySelector(".namecenterpage .c").innerHTML =
+            "ur kinda sus";
         },
       });
       squareScale = 1;
@@ -56,6 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "linear",
         update: function () {
           susText.innerHTML = "jebaited its a circle ඞඞඞඞ!!";
+          document.querySelector(
+            ".intro"
+          ).innerHTML = `Hi <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px"></img> I'm`;
           document.querySelector(".credits").innerHTML =
             "Song  :    Shadow (Syn Cole, Alida)";
         },
@@ -91,37 +97,50 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("stop music");
       audio.pause();
 
-      // Dialogues
-      anime({
-        targets: ".namecenterpage .b",
-        easing: "linear",
-        update: function () {
-          susText.innerHTML = "🤪🤪🤪";
-          document.querySelector(".credits").innerHTML = "";
-        },
-        complete: function () {
-          setTimeout(function () {
-            anime({
-              targets: ".namecenterpage .b",
-              easing: "linear",
-              update: function () {
-                susText.innerHTML = "...";
-              },
-              complete: function () {
-                setTimeout(function () {
-                  anime({
-                    targets: ".namecenterpage .b",
-                    easing: "linear",
-                    update: function () {
-                      susText.innerHTML = "";
-                    },
-                  });
-                }, 1000);
-              },
-            });
-          }, 500);
-        },
-      });
+      const computedStyles = window.getComputedStyle(square);
+      const borderRadius = computedStyles.getPropertyValue("border-radius");
+      console.log(borderRadius);
+      if (borderRadius === "0px" && squareScale > 2.8) {
+        anime({
+          update: function () {
+            console.log("I think you broke it smh");
+            susText.innerHTML = "._.";
+          },
+        });
+      } else {
+        // Dialogues
+        anime({
+          targets: ".namecenterpage .b",
+          easing: "linear",
+          update: function () {
+            susText.innerHTML = "🤪🤪🤪";
+            document.querySelector(".credits").innerHTML = "";
+            document.querySelector(".intro").innerHTML = "";
+          },
+          complete: function () {
+            setTimeout(function () {
+              anime({
+                targets: ".namecenterpage .b",
+                easing: "linear",
+                update: function () {
+                  susText.innerHTML = "._.";
+                },
+                complete: function () {
+                  setTimeout(function () {
+                    anime({
+                      targets: ".namecenterpage .b",
+                      easing: "linear",
+                      update: function () {
+                        susText.innerHTML = "";
+                      },
+                    });
+                  }, 1000);
+                },
+              });
+            }, 500);
+          },
+        });
+      }
 
       anime({
         targets: [".namecenterpage .square", ".namecenterpage .a"],
