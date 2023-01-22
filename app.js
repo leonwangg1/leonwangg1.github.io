@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         targets: ".namecenterpage .b",
         easing: "linear",
         update: function () {
-          susText.innerHTML = "jebaited its a circle ඞඞඞඞ!!";
+          susText.innerHTML = "jebaited. its a circle ඞඞඞඞ";
           document.querySelector(".container_mouse").style.display = "block";
           document.querySelector(
             ".intro"
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       // Transition to circle
       anime({
-        targets: ".namecenterpage .square",
+        targets: [".namecenterpage .square", square],
         borderRadius: ["3%", "50%"],
         easing: "easeInBounce",
         scale: 2.8,
@@ -135,6 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
                       easing: "linear",
                       update: function () {
                         susText.innerHTML = "";
+                        document.querySelector(".b").innerHTML =
+                          "suprised ya 😂😂";
                       },
                     });
                   }, 1000);
@@ -146,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       anime({
-        targets: [".namecenterpage .square", ".namecenterpage .a"],
+        targets: [".namecenterpage .square", ".namecenterpage .a", square],
         animation: "none",
         letterSpacing: "0.7rem",
         borderRadius: ["50%", "3%"],
