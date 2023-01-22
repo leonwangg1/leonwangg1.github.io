@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   var audio = document.createElement("audio");
   audio.src = "public/music.mp3";
-  // audio.setAttribute("autoplay", "autoplay");
-  // audio.setAttribute("loop", "loop");
   audio.setAttribute("id", "audio");
 
   const square = document.querySelector(".namecenterpage .selection");
@@ -49,12 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
         borderRadius: ["0%", "50%"],
         easing: "easeInBounce",
         scale: 2.8,
-        // complete: () => {
-        // anime({
-        //   targets: ".namecenterpage .square",
-        //   animation: "pulse 1s infinite",
-        // });
-        // },
+        complete: () => {
+          anime({
+            targets: ".namecenterpage .square",
+            animation: "pulse 1s infinite",
+          });
+        },
       });
       console.log("play music");
       audio.play();
@@ -70,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audio.pause();
       anime({
         targets: [".namecenterpage .square", ".namecenterpage .a"],
+        animation: "none",
         letterSpacing: "0.7rem",
         borderRadius: ["50%", "0%"],
         easing: "easeOutBounce",
