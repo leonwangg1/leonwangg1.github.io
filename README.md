@@ -6,3 +6,4 @@ Future Modifications:
 - [ ] Improve UI and change navbar
 - [ ] Dark mode?
 - [ ] Bug fixes
+- [ ] Responsive smooth scrollig animation
