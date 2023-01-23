@@ -2,6 +2,6 @@
 
 Future Modifications:
 
-- [ ] Add typewriter animationn to the text above
+- [ ] Add typewriter animation to the text above
 - [ ] Improve UI and change navbar
 - [ ] Dark mode?
